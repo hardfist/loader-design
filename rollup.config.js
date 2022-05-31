@@ -5,6 +5,8 @@ const esbuild = require('esbuild');
 const postcss = require('postcss');
 const postcss_variable = require('postcss-custom-properties');
 const { transform } = require('@svgr/core');
+const less = require('less');
+const path = require('path');
 const cssLang = /\.(less|sass|css|scss)$/;
 /**
  *
@@ -91,13 +93,39 @@ module.exports = defineConfig({
       },
     },
     {
+      name: 'less',
+      async resolveId(id, importer) {
+        if (id.endsWith('.less')) {
+          const { id: resolvedId } = await this.resolve(id, importer, { skipSelf: true });
+          return {
+            id: appendQuery(resolvedId, { loader: 'css' }),
+          };
+        }
+      },
+      async transform(code, id) {
+        const { filePath } = parseRequest(id);
+        if (filePath.endsWith('.less')) {
+          const result = await less.render(code);
+          console.log('result:', result);
+          return {
+            code: result.css,
+          };
+        }
+      },
+    },
+    {
       name: 'css',
       async transform(code, id) {
         const loader = defaultLoader(id);
+        const { filePath } = parseRequest(id);
         if (loader === 'css') {
           // todo support css bundle
           const result = postcss([postcss_variable({ preserve: false })]).process(code);
-          console.log(result.css);
+          this.emitFile({
+            type: 'asset',
+            fileName: path.basename(filePath).replace(/\.(less|sass)/, '.css'),
+            source: result.css,
+          });
           return {
             code: 'export default {}',
           };
