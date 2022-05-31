@@ -2,11 +2,20 @@ const { defineConfig } = require('rollup');
 const fs = require('fs');
 const qs = require('qs');
 const esbuild = require('esbuild');
+const postcss = require('postcss');
+const postcss_module = require('postcss-css-variables');
 const { transform } = require('@svgr/core');
+const cssLang = /\.(less|sass|css|scss)$/;
+/**
+ *
+ * @param {*} id
+ * @returns
+ */
 function parseRequest(id) {
   let [filePath, query] = id.split('?');
+
   return {
-    filePath,
+    filePath /* string */,
     query: qs.parse(query),
   };
 }
@@ -23,6 +32,8 @@ function defaultLoader(id) {
   }
   if (filePath.endsWith('.jsx')) {
     return 'jsx';
+  } else if (cssLang.test(filePath)) {
+    return filePath.match(cssLang)[1];
   } else {
     return 'js';
   }
@@ -75,6 +86,18 @@ module.exports = defineConfig({
           const jsCode = esbuild.transformSync(code, { loader: 'jsx' }).code;
           return {
             code: jsCode,
+          };
+        }
+      },
+    },
+    {
+      name: 'css',
+      async transform(code, id) {
+        const loader = defaultLoader(id);
+        if (loader === 'css') {
+          // todo support css bundle
+          return {
+            code: 'export default {}',
           };
         }
       },

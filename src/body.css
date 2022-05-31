@@ -1,0 +1,5 @@
+.foo {
+  width: var(--foo-width);
+  /* You can even provide a fallback */
+  background: var(--foo-bg-color, #ff0000);
+}
