@@ -3,7 +3,7 @@ const fs = require('fs');
 const qs = require('qs');
 const esbuild = require('esbuild');
 const postcss = require('postcss');
-const postcss_module = require('postcss-css-variables');
+const postcss_variable = require('postcss-custom-properties');
 const { transform } = require('@svgr/core');
 const cssLang = /\.(less|sass|css|scss)$/;
 /**
@@ -72,7 +72,7 @@ module.exports = defineConfig({
       },
       async load(id) {
         const { filePath, query } = parseRequest(id);
-        console.log('xxx:', filePath, query);
+
         return {
           code: fs.readFileSync(filePath, 'utf-8'),
         };
@@ -96,6 +96,8 @@ module.exports = defineConfig({
         const loader = defaultLoader(id);
         if (loader === 'css') {
           // todo support css bundle
+          const result = postcss([postcss_variable({ preserve: false })]).process(code);
+          console.log(result.css);
           return {
             code: 'export default {}',
           };

@@ -28,6 +28,7 @@
     "esbuild": "^0.14.42",
     "postcss": "^8.4.14",
     "postcss-css-variables": "^0.18.0",
+    "postcss-custom-properties": "^12.1.7",
     "qs": "^6.10.3",
     "rollup": "^2.75.3",
     "webpack": "^5.72.1"
