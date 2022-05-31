@@ -1,4 +1,5 @@
 const fs = require('fs');
+const esbuild = require('esbuild');
 const { transform } = require('@svgr/core');
 /**
  *
@@ -8,20 +9,24 @@ const { transform } = require('@svgr/core');
  * @returns
  */
 async function load(url, context, next) {
-  if (context.format === 'svgr') {
+  if (url.endsWith('.svg')) {
     let result = await next(
       url,
       {
         ...context,
-        format: 'jsx',
+        format: 'module',
       },
       next
     );
-    console.log('result:', result);
     const jsxCode = await transform(result.source.toString(), {}, {});
+    const code = (
+      await esbuild.transformSync(jsxCode, {
+        loader: 'jsx',
+      })
+    ).code;
     return {
-      format: 'jsx',
-      source: jsxCode,
+      format: 'module'
+      source: code,
       shortCircuit: true,
     };
   } else {
@@ -35,13 +40,13 @@ async function load(url, context, next) {
  * @param {*} next
  */
 async function resolve(id, context, next) {
-  console.log({ context });
+  // handle unknown file extension problem
   if (id.endsWith('.svg')) {
     let url = new URL(id, context.parentURL).href;
     return {
       url,
+      format: 'module',
       shortCircuit: true,
-      format: 'svgr',
     };
   }
   return next(id, context, next);

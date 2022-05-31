@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start:svg": "node-nightly --loader ./loaders/svgr-loader.js src/index.mjs",
     "start:loader": "node-nightly --experimental-loader ./loaders/svgr-loader.js --experimental-loader ./loaders/jsx-loader.js  src/index.mjs"
   },
   "repository": {

@@ -1,1 +1,2 @@
-console.log('xxx');
+import svg from './logo.svg';
+console.log('xxx', svg);
