@@ -1088,6 +1088,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@parcel/transformer-svg-react@npm:^2.6.0":
+  version: 2.6.0
+  resolution: "@parcel/transformer-svg-react@npm:2.6.0"
+  dependencies:
+    "@parcel/plugin": 2.6.0
+    "@svgr/core": ^6.2.0
+    "@svgr/plugin-jsx": ^6.2.0
+    "@svgr/plugin-svgo": ^6.2.0
+    camelcase: ^6.3.0
+  checksum: ecc1bc32cb8cf4bede82319f6fc3aea36f40b89a58d6ca55753913915b7923f283a98cbc5ad25e9f2f5696c837ad4bb20477dae3f98c5bf8f5d6dfd16070aaeb
+  languageName: node
+  linkType: hard
+
 "@parcel/transformer-svg@npm:2.6.0":
   version: 2.6.0
   resolution: "@parcel/transformer-svg@npm:2.6.0"
@@ -1251,7 +1264,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/core@npm:6.2.1":
+"@svgr/core@npm:6.2.1, @svgr/core@npm:^6.2.0":
   version: 6.2.1
   resolution: "@svgr/core@npm:6.2.1"
   dependencies:
@@ -1272,7 +1285,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/plugin-jsx@npm:^6.2.1":
+"@svgr/plugin-jsx@npm:^6.2.0, @svgr/plugin-jsx@npm:^6.2.1":
   version: 6.2.1
   resolution: "@svgr/plugin-jsx@npm:6.2.1"
   dependencies:
@@ -1283,6 +1296,19 @@ __metadata:
   peerDependencies:
     "@svgr/core": ^6.0.0
   checksum: 998164c3c30cf788f033f7f93cb929a948af7e52eaba6b16d0d9c667d28af671850a96108664da2551b1e5d59656fbc94ce23141735a1092d01f2f12ff2127ce
+  languageName: node
+  linkType: hard
+
+"@svgr/plugin-svgo@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "@svgr/plugin-svgo@npm:6.2.0"
+  dependencies:
+    cosmiconfig: ^7.0.1
+    deepmerge: ^4.2.2
+    svgo: ^2.5.0
+  peerDependencies:
+    "@svgr/core": ^6.0.0
+  checksum: 74d3aedd0fcaafbfe4985924b4d40e63536a686988eff52a3411cf83851ce2afc1f5e84e203dae18ab896db48c0b824dcfb8c5dd5b071b4ea90d00fc08951254
   languageName: node
   linkType: hard
 
@@ -1787,7 +1813,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"camelcase@npm:^6.2.0":
+"camelcase@npm:^6.2.0, camelcase@npm:^6.3.0":
   version: 6.3.0
   resolution: "camelcase@npm:6.3.0"
   checksum: 8c96818a9076434998511251dcb2761a94817ea17dbdc37f47ac080bd088fc62c7369429a19e2178b993497132c8cbcf5cc1f44ba963e76782ba469c0474938d
@@ -2036,6 +2062,13 @@ __metadata:
   dependencies:
     ms: ^2.1.1
   checksum: b3d8c5940799914d30314b7c3304a43305fd0715581a919dacb8b3176d024a782062368405b47491516d2091d6462d4d11f2f4974a405048094f8bfebfa3071c
+  languageName: node
+  linkType: hard
+
+"deepmerge@npm:^4.2.2":
+  version: 4.2.2
+  resolution: "deepmerge@npm:4.2.2"
+  checksum: a8c43a1ed8d6d1ed2b5bf569fa4c8eb9f0924034baf75d5d406e47e157a451075c4db353efea7b6bcc56ec48116a8ce72fccf867b6e078e7c561904b5897530b
   languageName: node
   linkType: hard
 
@@ -3162,6 +3195,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "loader-problem@workspace:."
   dependencies:
+    "@parcel/transformer-svg-react": ^2.6.0
     "@svgr/core": 6.2.1
     "@types/node": 17.0.36
     esbuild: ^0.14.42
@@ -3170,6 +3204,7 @@ __metadata:
     postcss: ^8.4.14
     postcss-css-variables: ^0.18.0
     postcss-custom-properties: ^12.1.7
+    process: ^0.11.10
     qs: ^6.10.3
     react: 18.1.0
     rollup: ^2.75.3
@@ -3879,6 +3914,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"process@npm:^0.11.10":
+  version: 0.11.10
+  resolution: "process@npm:0.11.10"
+  checksum: bfcce49814f7d172a6e6a14d5fa3ac92cc3d0c3b9feb1279774708a719e19acd673995226351a082a9ae99978254e320ccda4240ddc474ba31a76c79491ca7c3
+  languageName: node
+  linkType: hard
+
 "promise-inflight@npm:^1.0.1":
   version: 1.0.1
   resolution: "promise-inflight@npm:1.0.1"
@@ -4331,7 +4373,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svgo@npm:^2.4.0":
+"svgo@npm:^2.4.0, svgo@npm:^2.5.0":
   version: 2.8.0
   resolution: "svgo@npm:2.8.0"
   dependencies:
