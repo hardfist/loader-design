@@ -4,7 +4,9 @@ const qs = require('qs');
 const esbuild = require('esbuild');
 const postcss = require('postcss');
 const postcss_variable = require('postcss-custom-properties');
+const postcss_module = require('postcss-modules');
 const { transform } = require('@svgr/core');
+const utils = require('@rollup/pluginutils');
 const less = require('less');
 const path = require('path');
 const cssLang = /\.(less|sass|css|scss)$/;
@@ -47,6 +49,7 @@ module.exports = defineConfig({
   output: {
     dir: 'dist',
   },
+  treeshake: 'smallest',
   plugins: [
     {
       name: 'svg',
@@ -118,16 +121,28 @@ module.exports = defineConfig({
       async transform(code, id) {
         const loader = defaultLoader(id);
         const { filePath } = parseRequest(id);
+        let json;
         if (loader === 'css') {
           // todo support css bundle
-          const result = postcss([postcss_variable({ preserve: false })]).process(code);
-          this.emitFile({
-            type: 'asset',
-            fileName: path.basename(filePath).replace(/\.(less|sass)/, '.css'),
-            source: result.css,
+          const result = await postcss([
+            require('postcss-modules')({
+              getJSON(_, _json) {
+                json = _json;
+              },
+            }),
+          ]).process(code, {
+            from: filePath,
           });
+
+          const jsonCode = utils.dataToEsm(json, {
+            compact: true,
+            namedExports: true,
+            preferConst: true,
+            objectShorthand: false,
+          });
+          console.log('json:', json, jsonCode);
           return {
-            code: 'export default {}',
+            code: jsonCode,
           };
         }
       },

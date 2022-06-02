@@ -3,6 +3,10 @@
   "transformers": {
     "*.svg": [
       "parcel-transformer-svg"
+    ],
+    "*.vue": [
+      "parcel-transformer-vue",
+      "parcel-transformer-svg"
     ]
   }
 }

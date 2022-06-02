@@ -1,3 +1,2 @@
-import svg from './logo.svg';
-
-console.log('xxx', svg, tab, xxx);
+import a from './body.css';
+console.log('a:', a['title-yyy']);
