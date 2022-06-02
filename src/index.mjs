@@ -1,2 +1,9 @@
 import a from './body.css';
-console.log('a:', a['title-yyy']);
+import app from './App.vue';
+import svg from './logo.svg';
+
+console.log({
+  a,
+  app,
+  svg,
+});

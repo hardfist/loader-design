@@ -3,17 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "targets": {
-    "default": {
-      "distDir": "./dist"
-    }
-  },
   "scripts": {
     "start:svg": "node-nightly --loader ./loaders/svgr-loader.js src/index.mjs",
     "rollup:svg": "rollup -c rollup.config.js",
     "esbuild:svg": "node esbuild.js",
     "webpack:svg": "webpack -c webpack.config.js",
-    "parcel:svg": "parcel build src/index.mjs",
+    "parcel:svg": "parcel build src/index.mjs --dist-dir dist",
     "start:loader": "node-nightly --experimental-loader ./loaders/svgr-loader.js --experimental-loader ./loaders/jsx-loader.js  src/index.mjs"
   },
   "repository": {

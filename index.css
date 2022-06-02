@@ -1,0 +1,22 @@
+:global .page {
+  padding: 20px;
+}
+
+.title-xxx {
+  color: green;
+}
+
+.article {
+  font-size: 16px;
+}
+
+.title {
+  color: #000;
+  font-size: 40px;
+}
+
+.title:hover {
+  color: red;
+}
+
+/*# sourceMappingURL=index.css.map */

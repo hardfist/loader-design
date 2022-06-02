@@ -1,6 +1,48 @@
+require("./index.css");
+var $9NSC0$vue = require("vue");
 var $9NSC0$reactjsxruntime = require("react/jsx-runtime");
 require("react");
-var $9NSC0$vue = require("vue");
+
+
+
+var $c8a6dcd53a49f876$export$2e2bcd8739ae039 = {
+    name: "HelloWorld",
+    props: {
+        msg: String
+    },
+    setup (__props, { expose: expose  }) {
+        expose();
+        const count = (0, $9NSC0$vue.ref)(0);
+        const __returned__ = {
+            count: count,
+            ref: $9NSC0$vue.ref
+        };
+        Object.defineProperty(__returned__, "__isScriptSetup", {
+            enumerable: false,
+            value: true
+        });
+        return __returned__;
+    }
+};
+
+
+var $c5fae491208b2b40$export$2e2bcd8739ae039 = {
+    name: "App",
+    setup (__props, { expose: expose  }) {
+        expose();
+        // This starter template is using Vue 3 <script setup> SFCs
+        // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+        const __returned__ = {
+            HelloWorld: $c8a6dcd53a49f876$export$2e2bcd8739ae039
+        };
+        Object.defineProperty(__returned__, "__isScriptSetup", {
+            enumerable: false,
+            value: true
+        });
+        return __returned__;
+    }
+};
+
 
 
 
@@ -51,47 +93,11 @@ const $7975a74baabf97a6$var$SvgComponent = (props)=>/*#__PURE__*/ (0, $9NSC0$rea
 var $7975a74baabf97a6$export$2e2bcd8739ae039 = $7975a74baabf97a6$var$SvgComponent;
 
 
-
-var $c8a6dcd53a49f876$export$2e2bcd8739ae039 = {
-    name: "HelloWorld",
-    props: {
-        msg: String
-    },
-    setup (__props, { expose: expose  }) {
-        expose();
-        const count = (0, $9NSC0$vue.ref)(0);
-        const __returned__ = {
-            count: count,
-            ref: $9NSC0$vue.ref
-        };
-        Object.defineProperty(__returned__, "__isScriptSetup", {
-            enumerable: false,
-            value: true
-        });
-        return __returned__;
-    }
-};
-
-
-var $c5fae491208b2b40$export$2e2bcd8739ae039 = {
-    name: "App",
-    setup (__props, { expose: expose  }) {
-        expose();
-        // This starter template is using Vue 3 <script setup> SFCs
-        // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-        const __returned__ = {
-            HelloWorld: $c8a6dcd53a49f876$export$2e2bcd8739ae039
-        };
-        Object.defineProperty(__returned__, "__isScriptSetup", {
-            enumerable: false,
-            value: true
-        });
-        return __returned__;
-    }
-};
-
-
-console.log("xxx", (0, $7975a74baabf97a6$export$2e2bcd8739ae039), tab, xxx, (0, $c5fae491208b2b40$export$2e2bcd8739ae039));
+console.log({
+    a: {},
+    app: $c5fae491208b2b40$export$2e2bcd8739ae039,
+    svg: $7975a74baabf97a6$export$2e2bcd8739ae039
+});
 
 
 //# sourceMappingURL=index.js.map

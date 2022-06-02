@@ -5,8 +5,7 @@
       "parcel-transformer-svg"
     ],
     "*.vue": [
-      "parcel-transformer-vue",
-      "parcel-transformer-svg"
+      "parcel-transformer-vue"
     ]
   }
 }

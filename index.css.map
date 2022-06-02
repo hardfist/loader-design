@@ -1,0 +1,1 @@
+{"mappings":"AAAA;;;;AAIA;;;;AAIA;;;;AAKA;;;;;AAKA","sources":["src/body.css"],"sourcesContent":[":global .page {\n  padding: 20px;\n}\n\n.title-xxx {\n  color: green;\n}\n\n.article {\n  font-size: 16px;\n}\n\n/* mixins.css */\n.title {\n  color: black;\n  font-size: 40px;\n}\n\n.title:hover {\n  color: red;\n}\n"],"names":[],"version":3,"file":"index.css.map"}
