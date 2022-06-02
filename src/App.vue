@@ -10,12 +10,20 @@ import HelloWorld from './components/HelloWorld.vue'
 </template>
 
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@width: 10px;
+@height: @width + 10px;
+
+#header {
+  width: @width;
+  height: @height;
 }
+
+:root {
+  --color: red;
+}
+
+h2 {
+  color: var(--color);
+}
+
 </style>

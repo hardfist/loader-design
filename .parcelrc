@@ -6,6 +6,18 @@
     ],
     "*.vue": [
       "parcel-transformer-vue"
+    ],
+    "template:*.vue": [
+      "parcel-transformer-vue"
+    ],
+    "script:*.vue": [
+      "parcel-transformer-vue"
+    ],
+    "style:*.vue": [
+      "parcel-transformer-vue"
+    ],
+    "custom:*.vue": [
+      "parcel-transformer-vue"
     ]
   }
 }
