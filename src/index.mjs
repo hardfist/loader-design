@@ -1,9 +1,6 @@
-import a from './body.css';
-
-import svg from './logo.svg';
+// import a from './body.css';
+import app from './App.vue';
 
 console.log({
-  a,
   app,
-  svg,
 });

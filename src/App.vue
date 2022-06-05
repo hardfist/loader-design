@@ -10,7 +10,7 @@ import HelloWorld from './components/HelloWorld.vue'
 </template>
 
 <style lang="less">
-@width: 10px;
+@width: 1000px;
 @height: @width + 10px;
 
 #header {
