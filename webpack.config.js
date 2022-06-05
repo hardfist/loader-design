@@ -13,6 +13,18 @@ const configuration = {
         test: /\.svg/,
         use: [require.resolve('./webpack_loader/jsx'), require.resolve('./webpack_loader/svg.js')],
       },
+      {
+        test: /\.less/,
+        use: ['css-loader', 'less-loader'],
+      },
+      {
+        test: /\.css/,
+        use: ['css-loader'],
+      },
+      {
+        test: /\.vue/,
+        use: [require.resolve('./webpack_loader/vue.js')],
+      },
     ],
   },
 };
