@@ -8,7 +8,7 @@ const util = require('util');
 /**
  * @this {import('webpack').LoaderContext<any>}
  */
-module.exports = function vuePitchLoader(content) {
+module.exports = function vueLoader(content) {
   const callback = this.async();
   const inner = async () => {
     const parsed = compiler.parse(content, {
